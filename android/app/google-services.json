@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442964636518",
+    "project_id": "mob3-uas-022-endah-a7435",
+    "storage_bucket": "mob3-uas-022-endah-a7435.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442964636518:android:2a3cd24cb49527d4d18ea7",
+        "android_client_info": {
+          "package_name": "com.example.mob3_login_022_endah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2cV9sKh0SRQq5wf7aZWCT2nMrSwPFoZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
