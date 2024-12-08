@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mob3_login_022_endah/dasboard/dasboard.dart';
+import 'package:mob3_login_022_endah/dasboard/Dasboard.dart';
 
 void main() {
   runApp(DashboardApp());
@@ -15,6 +15,18 @@ class DashboardApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: DashboardScreen(),
+    );
+  }
+}
+
+class Dashboard extends StatelessWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Dashboard')),
+      body: const Center(child: Text('Welcome to Dashboard!')),
     );
   }
 }
@@ -169,3 +181,5 @@ class AboutPage extends StatelessWidget {
     );
   }
 }
+
+
