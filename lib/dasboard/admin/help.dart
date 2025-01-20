@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HelpPage extends StatelessWidget {
+  const HelpPage({super.key});
+
   // Fungsi untuk membuka WhatsApp dengan pesan otomatis
   void _launchWhatsApp() async {
     const phoneNumber = '+6282339542002';  // Ganti dengan nomor WhatsApp Anda
@@ -19,7 +21,7 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bantuan"),
+        title: const Text("Bantuan"),
         centerTitle: true,
         backgroundColor: Colors.green.shade300,
       ),
@@ -37,14 +39,14 @@ class HelpPage extends StatelessWidget {
                   color: Colors.green.shade300,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Card(
                 elevation: 3,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Text(
                     "1. Masuk ke aplikasi menggunakan akun Anda.\n"
                     "2. Setelah login, Anda akan diarahkan ke dashboard utama.\n"
@@ -56,7 +58,7 @@ class HelpPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 "Kontak Bantuan",
                 style: TextStyle(
@@ -65,7 +67,7 @@ class HelpPage extends StatelessWidget {
                   color: Colors.green.shade300,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Card(
                 elevation: 3,
                 shape: RoundedRectangleBorder(
@@ -76,12 +78,12 @@ class HelpPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Jika Anda membutuhkan bantuan lebih lanjut, silakan hubungi kami di:",
                         style: TextStyle(fontSize: 16, height: 1.5),
                       ),
-                      SizedBox(height: 10),
-                      Row(
+                      const SizedBox(height: 10),
+                      const Row(
                         children: [
                           Icon(Icons.messenger_outline, color: Colors.green, size: 24),
                           SizedBox(width: 10),
@@ -94,12 +96,12 @@ class HelpPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Center(
                         child: ElevatedButton.icon(
                           onPressed: _launchWhatsApp,
-                          icon: Icon(Icons.messenger_outline),
-                          label: Text("Hubungi via WhatsApp"),
+                          icon: const Icon(Icons.messenger_outline),
+                          label: const Text("Hubungi via WhatsApp"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green.shade300,
                             shape: RoundedRectangleBorder(

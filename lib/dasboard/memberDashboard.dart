@@ -6,7 +6,7 @@ void main() {
 }
 
 class MemberDashboardApp extends StatelessWidget {
-  const MemberDashboardApp({Key? key}) : super(key: key);
+  const MemberDashboardApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class MemberDashboardApp extends StatelessWidget {
 }
 
 class MemberDashboardScreen extends StatelessWidget {
-  const MemberDashboardScreen({Key? key}) : super(key: key);
+  const MemberDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,12 @@ class MemberDashboardScreen extends StatelessWidget {
           children: [
             Expanded(
               child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
-                children: [
+                children: const [
                   DashboardCard(
                     icon: Icons.person,
                     title: 'Data Pribadi',
@@ -75,10 +75,10 @@ class DashboardCard extends StatelessWidget {
   final String title;
 
   const DashboardCard({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +104,7 @@ class DashboardCard extends StatelessWidget {
 }
 
 class MemberAppDrawer extends StatelessWidget {
-  const MemberAppDrawer({Key? key}) : super(key: key);
+  const MemberAppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

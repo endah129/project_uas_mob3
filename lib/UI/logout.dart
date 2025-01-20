@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mob3_login_022_endah/auth/service_auth.dart';
 
 class LogoutPage extends StatelessWidget {
-  const LogoutPage({Key? key}) : super(key: key);
+  const LogoutPage({super.key});
 
   Future<void> _logout(BuildContext context) async {
     try {

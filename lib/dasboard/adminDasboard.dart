@@ -12,7 +12,7 @@ void main() {
 }
 
 class AdminDashboardApp extends StatelessWidget {
-  const AdminDashboardApp({Key? key}) : super(key: key);
+  const AdminDashboardApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class AdminDashboardApp extends StatelessWidget {
 }
 
 class AdminDashboardScreen extends StatefulWidget {
-  const AdminDashboardScreen({Key? key}) : super(key: key);
+  const AdminDashboardScreen({super.key});
 
   @override
   _AdminDashboardScreenState createState() => _AdminDashboardScreenState();
@@ -88,7 +88,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       await Future.delayed(const Duration(milliseconds: 300));
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DataPembayaranScreen()),
+                        MaterialPageRoute(builder: (context) => const DataPembayaranScreen()),
                       );
                     },
                   ),

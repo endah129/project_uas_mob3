@@ -6,6 +6,8 @@ void main() {
 }
 
 class DashboardApp extends StatelessWidget {
+  const DashboardApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +22,7 @@ class DashboardApp extends StatelessWidget {
 }
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +34,19 @@ class Dashboard extends StatelessWidget {
 }
 
 class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: const Text('Dashboard'),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, // Jumlah kolom
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -104,7 +108,7 @@ class DashboardCard extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
 
-  DashboardCard({required this.icon, required this.title, required this.onTap});
+  const DashboardCard({super.key, required this.icon, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +121,8 @@ class DashboardCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, size: 40, color: Colors.blue),
-            SizedBox(height: 8),
-            Text(title, style: TextStyle(fontSize: 16)),
+            const SizedBox(height: 8),
+            Text(title, style: const TextStyle(fontSize: 16)),
           ],
         ),
       ),
@@ -127,13 +131,15 @@ class DashboardCard extends StatelessWidget {
 }
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profil'),
+        title: const Text('Profil'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Halaman Profil'),
       ),
     );
@@ -141,13 +147,15 @@ class ProfilePage extends StatelessWidget {
 }
 
 class NotificationPage extends StatelessWidget {
+  const NotificationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifikasi'),
+        title: const Text('Notifikasi'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Halaman Notifikasi'),
       ),
     );
@@ -155,13 +163,15 @@ class NotificationPage extends StatelessWidget {
 }
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pengaturan'),
+        title: const Text('Pengaturan'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Halaman Pengaturan'),
       ),
     );
@@ -169,13 +179,15 @@ class SettingsPage extends StatelessWidget {
 }
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tentang'),
+        title: const Text('Tentang'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Halaman Tentang'),
       ),
     );

@@ -9,7 +9,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
 }
 
 class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
+
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -46,7 +48,7 @@ class _AccountPageState extends State<AccountPage> {
   }
 
 
-  List<String> _indonesiaCities = [
+  final List<String> _indonesiaCities = [
     'Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Depok', 'Tangerang', 'Semarang', 'Makassar', 
     'Palembang', 'Bogor', 'Padang', 'Malang', 'Batam', 'Pekanbaru', 'Denpasar', 'Samarinda', 'Yogyakarta', 
     'Banjarmasin', 'Pontianak', 'Manado', 'Mataram', 'Balikpapan', 'Ambon', 'Jayapura', 'Kendari', 'Palangkaraya', 
@@ -54,7 +56,7 @@ class _AccountPageState extends State<AccountPage> {
     'Kediri', 'Salatiga', 'Magelang', 'Madiun', 'Pasuruan'
   ];
 
-  List<String> _universities = [
+  final List<String> _universities = [
     'Universitas Bumigora', 'Universitas Indonesia', 'Universitas Gadjah Mada', 'Universitas Airlangga', 'Universitas Diponegoro',
     'Universitas Sanata Dharma', 'Universitas Tarumanagara', 'Universitas Kristen Satya Wacana', 'Universitas Kristen Maranatha',
     'Universitas Mercu Buana', 'Universitas Ahmad Dahlan', 'Universitas Muhammadiyah Surakarta', 'Universitas Muhammadiyah Jakarta',
@@ -273,7 +275,7 @@ class ProfileSection extends StatelessWidget {
   final String label;
   final String value;
 
-  const ProfileSection({Key? key, required this.label, required this.value}) : super(key: key);
+  const ProfileSection({super.key, required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -296,10 +298,10 @@ class EditableSection extends StatelessWidget {
   final List<Widget> fields;
 
   const EditableSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.fields,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -338,10 +340,10 @@ class EditableField extends StatelessWidget {
   final TextEditingController controller;
 
   const EditableField({
-    Key? key,
+    super.key,
     required this.label,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -373,12 +375,12 @@ class DropdownField extends StatelessWidget {
   final ValueChanged<String?> onChanged;
 
   const DropdownField({
-    Key? key,
+    super.key,
     required this.label,
     required this.value,
     required this.items,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

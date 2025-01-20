@@ -6,7 +6,7 @@ import 'package:mob3_login_022_endah/dasboard/admin/notif.dart';
 import 'package:mob3_login_022_endah/dasboard/admin/transaksi.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                 // Navigasi ke LogoutPage
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => LogoutPage()),
+                  MaterialPageRoute(builder: (context) => const LogoutPage()),
                 );
               }
             },
@@ -78,18 +78,18 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
-                    offset: const Offset(0, 4),
+                    offset: Offset(0, 4),
                     blurRadius: 6,
                   ),
                 ],
               ),
               padding: const EdgeInsets.all(16),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -141,7 +141,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TransactionsScreen(),
+                        builder: (context) => const TransactionsScreen(),
                       ),
                     );
                   },
@@ -268,10 +268,10 @@ class HomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(12),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
-                offset: const Offset(0, 4),
+                offset: Offset(0, 4),
                 blurRadius: 6,
               ),
             ],
@@ -314,10 +314,10 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
-              offset: const Offset(0, 4),
+              offset: Offset(0, 4),
               blurRadius: 6,
             ),
           ],

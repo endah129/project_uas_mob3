@@ -159,4 +159,8 @@ class AuthService {
         return 'Terjadi kesalahan. Silakan coba lagi.';
     }
   }
+
+  static logout(BuildContext context) {}
+
+  forgotPassword({required String email, required BuildContext context}) {}
 }

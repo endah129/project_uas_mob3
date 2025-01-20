@@ -27,11 +27,11 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
   }
 
   Future<void> _updatePembayaran(String id, Map<String, dynamic> data) async {
-    final _formKey = GlobalKey<FormState>();
-    final _namaController = TextEditingController(text: data['nama']);
-    final _nikController = TextEditingController(text: data['nik']);
-    final _alamatController = TextEditingController(text: data['alamat']);
-    final _emailController = TextEditingController(text: data['email'] ?? '');
+    final formKey = GlobalKey<FormState>();
+    final namaController = TextEditingController(text: data['nama']);
+    final nikController = TextEditingController(text: data['nik']);
+    final alamatController = TextEditingController(text: data['alamat']);
+    final emailController = TextEditingController(text: data['email'] ?? '');
 
     String status = data['status'] ?? 'Lunas';
 
@@ -52,7 +52,7 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
             padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
               child: Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -66,31 +66,31 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     _buildTextField(
-                      controller: _namaController,
+                      controller: namaController,
                       label: 'Nama Pembayar',
                       icon: Icons.person,
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     _buildTextField(
-                      controller: _nikController,
+                      controller: nikController,
                       label: 'NIK',
                       icon: Icons.badge,
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     _buildTextField(
-                      controller: _alamatController,
+                      controller: alamatController,
                       label: 'Alamat Lengkap',
                       icon: Icons.home,
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     _buildTextField(
-                      controller: _emailController,
+                      controller: emailController,
                       label: 'Email',
                       icon: Icons.email_outlined,
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     DropdownButtonFormField<String>(
                       value: status,
                       items: ['Lunas', 'Tidak Lunas'].map((String value) {
@@ -118,32 +118,32 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                         return null;
                       },
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ElevatedButton.icon(
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {
+                            if (formKey.currentState!.validate()) {
                               FirebaseFirestore.instance.collection('pembayaran').doc(id).update({
-                                'nama': _namaController.text,
-                                'nik': _nikController.text,
-                                'alamat': _alamatController.text,
-                                'email': _emailController.text,
+                                'nama': namaController.text,
+                                'nik': nikController.text,
+                                'alamat': alamatController.text,
+                                'email': emailController.text,
                                 'status': status,
                               }).then((value) {
                                 Navigator.of(context).pop();
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Data berhasil diperbarui!')),
+                                  const SnackBar(content: Text('Data berhasil diperbarui!')),
                                 );
                               });
                             }
                           },
-                          icon: Icon(Icons.save),
-                          label: Text('Simpan'),
+                          icon: const Icon(Icons.save),
+                          label: const Text('Simpan'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green.shade400,
-                            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -151,14 +151,14 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                         ),
                         OutlinedButton.icon(
                           onPressed: () => Navigator.of(context).pop(),
-                          icon: Icon(Icons.cancel, color: Colors.red),
-                          label: Text(
+                          icon: const Icon(Icons.cancel, color: Colors.red),
+                          label: const Text(
                             'Batal',
                             style: TextStyle(color: Colors.red),
                           ),
                           style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.red),
-                            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                            side: const BorderSide(color: Colors.red),
+                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -206,8 +206,8 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Hapus Pembayaran'),
-        content: Text('Apakah Anda yakin ingin menghapus Pembayaran ini?'),
+        title: const Text('Hapus Pembayaran'),
+        content: const Text('Apakah Anda yakin ingin menghapus Pembayaran ini?'),
         actions: [
           TextButton(
             onPressed: () {
@@ -215,11 +215,11 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                 Navigator.of(context).pop();
               });
             },
-            child: Text('Hapus'),
+            child: const Text('Hapus'),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Batal'),
+            child: const Text('Batal'),
           ),
         ],
       ),
@@ -256,7 +256,7 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -357,7 +357,7 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                                             color: Colors.black54,
                                           ),
                                         ),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text(
                                           'Status: $status',
                                           style: TextStyle(
@@ -367,15 +367,15 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text(
                                           'Tanggal Pembayaran: $formattedTanggalPembayaran',
-                                          style: TextStyle(fontSize: 14),
+                                          style: const TextStyle(fontSize: 14),
                                         ),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text(
                                           'Jumlah Pembayaran: $jumlah',
-                                          style: TextStyle(fontSize: 14),
+                                          style: const TextStyle(fontSize: 14),
                                         ),
                                       ],
                                     ),
@@ -383,11 +383,11 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         IconButton(
-                                          icon: Icon(Icons.edit, color: Colors.blue),
+                                          icon: const Icon(Icons.edit, color: Colors.blue),
                                           onPressed: () => _updatePembayaran(id, memberData),
                                         ),
                                         IconButton(
-                                          icon: Icon(Icons.delete, color: Colors.red),
+                                          icon: const Icon(Icons.delete, color: Colors.red),
                                           onPressed: () => _deletePembayaran(id),
                                         ),
                                       ],
@@ -409,7 +409,7 @@ class _DataPembayaranScreenState extends State<DataPembayaranScreen> with Single
                 Expanded(
                   child: InputDataPembayaran(
                     onSaveData: (data) {},
-                    existingData: {},
+                    existingData: const {},
                   ),
                 ),
               ],

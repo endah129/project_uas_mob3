@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class InputDataPinjaman extends StatefulWidget {
   final Function(Map<String, Object>) onSaveData; // Menggunakan Map<String, Object>
 
-  const InputDataPinjaman({Key? key, required this.onSaveData, required Map existingData}) : super(key: key);
+  const InputDataPinjaman({super.key, required this.onSaveData, required Map existingData});
 
   @override
   _InputDataPinjamanState createState() => _InputDataPinjamanState();

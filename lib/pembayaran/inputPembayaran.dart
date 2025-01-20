@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class InputDataPembayaran extends StatefulWidget {
   final Function(Map<String, Object>) onSaveData; // Menggunakan Map<String, Object>
 
-  const InputDataPembayaran({Key? key, required this.onSaveData, required Map existingData}) : super(key: key);
+  const InputDataPembayaran({super.key, required this.onSaveData, required Map existingData});
 
   @override
   _InputDataPembayaranState createState() => _InputDataPembayaranState();

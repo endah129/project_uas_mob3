@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
 }
 
 class ReportPage extends StatefulWidget {
+  const ReportPage({super.key});
+
   @override
   _ReportPageState createState() => _ReportPageState();
 }
@@ -56,8 +60,8 @@ class _ReportPageState extends State<ReportPage> {
           child: Column(
             children: [
               // Header Tabs
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -73,8 +77,8 @@ class _ReportPageState extends State<ReportPage> {
                 ),
               ),
               // Tab Selector
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -96,15 +100,15 @@ class _ReportPageState extends State<ReportPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Bar Chart Section
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                padding: EdgeInsets.all(16.0),
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16.0),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 8.0,
@@ -113,11 +117,11 @@ class _ReportPageState extends State<ReportPage> {
                 ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Laporan Global',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     AspectRatio(
                       aspectRatio: 1.5,
                       child: BarChart(
@@ -131,7 +135,7 @@ class _ReportPageState extends State<ReportPage> {
                             makeGroupData(4, 9, 12, 8),
                           ],
                           titlesData: FlTitlesData(
-                            leftTitles: AxisTitles(
+                            leftTitles: const AxisTitles(
                               sideTitles: SideTitles(showTitles: false),
                             ),
                             bottomTitles: AxisTitles(
@@ -141,26 +145,28 @@ class _ReportPageState extends State<ReportPage> {
                                   Widget text;
                                   switch (value.toInt()) {
                                     case 0:
-                                      text = Text('Sep');
+                                      text = const Text('Sep');
                                       break;
                                     case 1:
-                                      text = Text('Okt');
+                                      text = const Text('Okt');
                                       break;
                                     case 2:
-                                      text = Text('Nov');
+                                      text = const Text('Nov');
                                       break;
                                     case 3:
-                                      text = Text('Des');
+                                      text = const Text('Des');
                                       break;
                                     case 4:
-                                      text = Text('Jan');
+                                      text = const Text('Jan');
                                       break;
                                     default:
-                                      text = Text('');
+                                      text = const Text('');
                                   }
                                   return SideTitleWidget(
-                                    axisSide: meta.axisSide,
-                                    child: text,
+                                    fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
+                                    space: 4,
+                                    meta: meta, // Tambahkan jarak agar terlihat lebih baik
+                                    child: text, // Tambahkan parameter meta yang diperlukan
                                   );
                                 },
                               ),
@@ -169,22 +175,22 @@ class _ReportPageState extends State<ReportPage> {
                           borderData: FlBorderData(
                             show: false,
                           ),
-                          gridData: FlGridData(show: false),
+                          gridData: const FlGridData(show: false),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Pie Chart Section for Anggota, Pinjaman, Pembayaran
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                padding: EdgeInsets.all(16.0),
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16.0),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 8.0,
@@ -193,12 +199,12 @@ class _ReportPageState extends State<ReportPage> {
                 ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Persentase',
                       style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
-                    SizedBox(height: 8),
-                    Text.rich(
+                    const SizedBox(height: 8),
+                    const Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
@@ -228,13 +234,13 @@ class _ReportPageState extends State<ReportPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     // PieChart
-                    Container(
+                    SizedBox(
                       width: 150,
                       height: 150,
                       child: anggota == 0.0 || pinjaman == 0.0 || pembayaran == 0.0
-                          ? CircularProgressIndicator() // Loading indicator jika data belum ada
+                          ? const CircularProgressIndicator() // Loading indicator jika data belum ada
                           : PieChart(
                               PieChartData(
                                 sections: [
@@ -243,7 +249,7 @@ class _ReportPageState extends State<ReportPage> {
                                     color: Colors.blue,
                                     title: '${(anggota / (anggota + pinjaman + pembayaran) * 100).toStringAsFixed(1)}%',
                                     radius: 50,
-                                    titleStyle: TextStyle(
+                                    titleStyle: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -254,7 +260,7 @@ class _ReportPageState extends State<ReportPage> {
                                     color: Colors.red,
                                     title: '${(pinjaman / (anggota + pinjaman + pembayaran) * 100).toStringAsFixed(1)}%',
                                     radius: 50,
-                                    titleStyle: TextStyle(
+                                    titleStyle: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -265,7 +271,7 @@ class _ReportPageState extends State<ReportPage> {
                                     color: Colors.green,
                                     title: '${(pembayaran / (anggota + pinjaman + pembayaran) * 100).toStringAsFixed(1)}%',
                                     radius: 50,
-                                    titleStyle: TextStyle(
+                                    titleStyle: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -279,7 +285,7 @@ class _ReportPageState extends State<ReportPage> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

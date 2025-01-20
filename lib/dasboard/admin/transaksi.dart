@@ -13,7 +13,7 @@ String formatDate(String dateStr) {
 }
 
 class TransactionsScreen extends StatelessWidget {
-  const TransactionsScreen({Key? key}) : super(key: key);
+  const TransactionsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

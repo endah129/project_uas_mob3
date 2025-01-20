@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class InputDataAnggota extends StatefulWidget {
   final Function(Map<String, Object>) onSaveData; // Menggunakan Map<String, Object>
 
-  const InputDataAnggota({Key? key, required this.onSaveData, required Map existingData}) : super(key: key);
+  const InputDataAnggota({super.key, required this.onSaveData, required Map existingData});
 
 
   @override
